@@ -1,0 +1,60 @@
+#本地常用软件的重写
+
+# > 豆瓣
+^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash url reject-dict
+^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* url reject-dict
+# > 京东
+^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start url reject-dict
+^https?:\/\/api\.m\.jd.com\/client\.action\?functionId=queryMaterialAdverts url reject
+^https?:\/\/(bdsp-x|dsp-x)\.jd\.com\/adx\/ url reject
+^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=hotWords url script-response-body https://github.com/ddgksf2013/Scripts/raw/master/jd_json.js
+^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=hotSearchTerms url script-response-body https://github.com/ddgksf2013/Scripts/raw/master/jd_json.js
+# >京东金融
+^https?:\/\/ms\.jr\.jd\.com\/gw\/generic\/aladdin\/(new)?na\/m\/getLoadingPicture url reject
+# > kfc
+^https?:\/\/res.kfc.com.cn\/advertisement\/ url reject
+# >小蚁
+# > 作业帮
+^https?:\/\/syh\.zybang\.com\/com\/adx\/ url reject
+# >建行生活
+^https?:\/\/yunbusiness\.ccb\.com\/clp_service\/txCtrl\?txcode=A3341A00(2|9) url reject
+# > 闲鱼
+^https:\/\/gw.alicdn.com\/mt\/ url reject
+^https:\/\/gw.alicdn.com\/tfs\/.+\d{3,4}-\d{4} url reject
+^https:\/\/gw.alicdn.com\/tps\/.+\d{3,4}-\d{4} url reject
+# > 拼多多
+^https?:\/\/api\.(pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash url reject
+ # >饿了么 
+^https:\/\/elemecdn.com\/.+\/sitemap url reject
+^https:\/\/fuss10.elemecdn.com\/.+\/w\/640\/h\/\d{3,4} url reject
+^https:\/\/fuss10.elemecdn.com\/.+\/w\/750\/h\/\d{3,4} url reject
+^https:\/\/fuss10.elemecdn.com\/.+.mp4 url reject
+^https:\/\/www1.elecfans.com\/www\/delivery\/ url reject
+# 美团 //
+^https:\/\/img\.meituan\.net\/(adunion|display|midas)\/\w+\.(gif|jpg|jpg\.webp)$ url reject
+^https:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) url reject
+^https:\/\/p\d\.meituan\.net\/(bizad|wmbanner)\/\w+\.jpg url reject
+^https:\/\/p\d\.meituan\.net\/movie\/\w+\.jpg\?may_covertWebp url reject
+# 美团外卖 //
+^https:\/\/wmapi\.meituan\.com\/api\/v7\/loadInfo\?ad url script-response-body https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/myBlockAds.js
+^https:\/\/wmapi\.meituan\.com\/api\/v7\/startpicture url reject
+^https:\/\/www\.meituan\.com\/api\/v2\/appstatus\?ad url reject
+# 交管12123 //
+^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery url reject
+## 米家 //
+^https:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/banner\? url reject
+# 优酷 //
+
+# 中国移动 //
+^https?:\/\/client.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit url reject-200
+# 12306 开屏广告 //
+^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList url script-response-body https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/myBlockAds.js
+# 58同城 //
+^https:\/\/app\.58\.com\/api\/home\/(advertising|appadv)\/ url reject
+^https:\/\/app\.58\.com\/api\/home\/invite\/popupAdv url reject
+^https:\/\/app\.58\.com\/api\/log\/ url reject
+^https:\/\/pic\d\.ajkimg\.com\/mat\/\w+\?imageMogr\d\/format\/jpg\/thumbnail\/\d{3}x\d{4}$ url reject
+^https:\/\/.+\.58cdn\.com\.cn\/brandads\/ url reject
+
+
+#hostname = cdn.cmgadx.com, *.yinxiang.com, *.meitudata.com, api.data.meitu.com, api.xiuxiu.meitu.com, datafinder-rabbit.meitustat.com, api.douban.combdsp-x.jd.com, dsp-x.jd.com, api.m.jd.com, ms.jr.jd.com, res.kfc.com.cn, syh.zybang.com, yunbusiness.ccb.com, gw.alicdn.com, api.pinduoduo.com, api.yangkeduo.com, elemecdn.com, fuss10.elemecdn.com, www1.elecfans.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, p*.meituan.net, wmapi.meituan.com, meituan.com, gab.122.gov.cn, home.mi.com, *.ott.cibntv.net, gd.10086.cn, ad.12306.cn, *.58cdn.com.cn, app.58.com, pic?.ajkimg.com
